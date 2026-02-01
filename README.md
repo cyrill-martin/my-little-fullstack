@@ -48,7 +48,8 @@ How to setup a new basic multilanguage project from scratch
 1. Set the permissions of the Directus directories so that everyone can read with `sudo chmod -R 755 directus/`
 1. Create a fresh `frontend` directory with a SSR Nuxt project with `npx nuxi init frontend`
    - Choose the minimal setup
-   - Do **NOT** add a Git repository
+   - Do not add a Git repository
+   - do not install any of the official modules
    - `__frontend` contains an according project already but I prefer to start fresh with currenct npm versions for all packages. Keep the `__frontend` directory to copy composables, etc. later.
 1. Navigate into the `frontend` directory with `cd frontend`
 1. Run `npm install`.

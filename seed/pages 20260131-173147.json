@@ -1,0 +1,54 @@
+[
+	{
+		"id": 1,
+		"slug": "home",
+		"status": "published",
+		"sort": null,
+		"user_created": "402d7375-85f7-49c6-8127-0399d6d09110",
+		"date_created": "2026-01-26T14:31:18.237Z",
+		"user_updated": "402d7375-85f7-49c6-8127-0399d6d09110",
+		"date_updated": "2026-01-30T19:37:53.682Z",
+		"translations": [
+			{
+				"title": "Startseite",
+				"id": 1,
+				"pages_id": 1,
+				"languages_code": "de-DE",
+				"content": "<p>Ein Inhalt mit Inhalt.</p>"
+			},
+			{
+				"title": "Home Page",
+				"id": 2,
+				"pages_id": 1,
+				"languages_code": "en-US",
+				"content": "<p>Some contentful content.</p>"
+			}
+		]
+	},
+	{
+		"id": 2,
+		"slug": "about",
+		"status": "draft",
+		"sort": null,
+		"user_created": "402d7375-85f7-49c6-8127-0399d6d09110",
+		"date_created": "2026-01-26T14:32:47.408Z",
+		"user_updated": "402d7375-85f7-49c6-8127-0399d6d09110",
+		"date_updated": "2026-01-29T15:07:33.778Z",
+		"translations": [
+			{
+				"title": "Über",
+				"id": 3,
+				"pages_id": 2,
+				"languages_code": "de-DE",
+				"content": "<p>&Uuml;ber uns</p>"
+			},
+			{
+				"title": "About",
+				"id": 4,
+				"pages_id": 2,
+				"languages_code": "en-US",
+				"content": "<p>About Us</p>"
+			}
+		]
+	}
+]

@@ -102,3 +102,5 @@ How to setup a new basic multilanguage project from scratch
    - datasets
    - labels
    - pages
+1. Remove the `__frontend` directoy.
+1. Remove the `seed` directory.

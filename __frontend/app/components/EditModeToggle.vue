@@ -1,4 +1,5 @@
 <script setup>
+// Handling the custom edit mode with Ctrl + e ...
 import { NMarquee } from "naive-ui";
 const { isEditMode, toggleEditMode } = useEditMode();
 

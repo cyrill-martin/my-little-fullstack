@@ -1,4 +1,9 @@
 <script setup>
+// Handling the custom edit's mode UI interaction
+
+/* Hovering over elements shows an outline if the HTML element contains 
+a correctly formatted data-edit attribute.
+Right click shows a corresponding link to Directus */
 import { NPopover, NButton } from "naive-ui";
 
 const runtimeConfig = useRuntimeConfig();

@@ -30,9 +30,9 @@ How to setup a new basic multilanguage project from scratch
 
    ```bash
    # Directus configuration
-   DIRECTUS_SECRET={{ your secrect }}
+   DIRECTUS_SECRET={{ your secrect }} # No $ signs
    DIRECTUS_ADMIN_EMAIL={{ your e-mail }}
-   DIRECTUS_ADMIN_PASSWORD={{ your passowrd }}
+   DIRECTUS_ADMIN_PASSWORD={{ your passowrd }} # No $ signs
    DIRECTUS_PUBLIC_URL=http://localhost:8055
 
    # Nuxt configuration

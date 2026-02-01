@@ -1,0 +1,9 @@
+[
+  {
+    "key": "menu.home",
+    "translations": [
+      { "languages_code": "de-DE", "value": "Startseite" },
+      { "languages_code": "en-US", "value": "Home" }
+    ]
+  }
+]

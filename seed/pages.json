@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "slug": "home",
+    "status": "published",
+    "sort": null,
+    "translations": [
+      {
+        "title": "Startseite",
+        "id": 1,
+        "pages_id": 1,
+        "languages_code": "de-DE",
+        "content": "<p>Ein Inhalt mit Inhalt.</p>"
+      },
+      {
+        "title": "Home Page",
+        "id": 2,
+        "pages_id": 1,
+        "languages_code": "en-US",
+        "content": "<p>Some contentful content.</p>"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "about",
+    "status": "draft",
+    "sort": null,
+    "translations": [
+      {
+        "title": "Über",
+        "id": 3,
+        "pages_id": 2,
+        "languages_code": "de-DE",
+        "content": "<p>&Uuml;ber uns</p>"
+      },
+      {
+        "title": "About",
+        "id": 4,
+        "pages_id": 2,
+        "languages_code": "en-US",
+        "content": "<p>About Us</p>"
+      }
+    ]
+  }
+]

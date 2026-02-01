@@ -65,8 +65,23 @@ How to setup a new basic multilanguage project from scratch
    - ./app/*
    ```
 1. Navigate back to the root with `cd ..`.
-1. Add a Git repository with `git init` if not already present.
-1. Make sure `.gitignore` looks like this:
+1. Remove the `__frontend` directoy.
+1. Start everything up with `docker compose up -d`:
+1. Vist http://localhost:8055, log in with the credentials from your .env file, and set the owner.
+1. Copy the demo database schema into the container with `docker compose cp ./seed/schema.yaml directus:/directus/schema.yaml`
+1. Apply the demo database schema with `docker compose exec directus npx directus schema apply /directus/schema.yaml`
+1. Remove the file for tidiness with `docker compose exec directus rm /directus/schema.yaml`.
+1. Go to Directus (http://localhost:8055) and log in.
+1. Make sure the `datasets`, `labels`, `pages` collections as well as their hidden translation collections are publicly available (read access is enough).
+1. Import the collections items from the `seed` directory in the following order:
+   - languages
+   - datasets
+   - labels
+   - pages
+1. Remove the `seed` directory.
+1. Check http://localhost:3000 for the demo
+1. Check `LICENSE.md`
+1. Make sure `.gitignore` looks like this (WITHOUT ANY LEADING SPACES):
 
    ```git
    # Environment
@@ -92,18 +107,10 @@ How to setup a new basic multilanguage project from scratch
    .DS_Store
    ```
 
-1. Start everything up with `docker compose up -d`:
-   - http://localhost:8055 → Directus admin login (check .env for credentials)
-   - http://localhost:3000 → Nuxt welcome page
-1. Copy the demo database schema into the container with ``docker compose cp ./seed/schema.yaml directus:/directus/schema.yaml```
-1. Apply the demo database schema with ``docker compose exec directus npx directus schema apply /directus/schema.yaml```
-1. Go to Directus (http://localhost:8055) and log in.
-1. Make sure the `datasets`, `labels`, `pages` collections as well as their hidden translation collections are publicly available (read access is enough).
-1. Import the collections items from the `seed` directory in the following order:
-   - languages
-   - datasets
-   - labels
-   - pages
-1. Remove the `__frontend` directoy.
-1. Remove the `seed` directory.
-1. Check `LICENSE.md`
+1. Add a proper Git repository with:
+   ```git
+   git init
+   git add .gitignore
+   git add .
+   git commit -m "Initial commit"
+   ```

@@ -1,4 +1,4 @@
-# My Little Fullstack
+# kmapper GmbH: My Little Fullstack
 
 How to setup a new basic multilanguage project from scratch
 

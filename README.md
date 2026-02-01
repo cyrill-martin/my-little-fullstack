@@ -25,14 +25,14 @@ How to setup a new basic multilanguage project from scratch
 
 1. Get template files from GitHub and create a new project directory/repository
    - https://github.com/cyrill-martin/my-little-fullstack
-
+1. Check https://hub.docker.com/r/directus/directus for latest Directus Docker image an consider changing the version in `docker-compose.yml`.
 1. Rename `.env.exmaple` to `.env` and add credentials for local development:
 
    ```bash
    # Directus configuration
-   DIRECTUS_SECRET={ your secrect }
-   DIRECTUS_ADMIN_EMAIL={ your e-mail }
-   DIRECTUS_ADMIN_PASSWORD={ your passowrd }
+   DIRECTUS_SECRET={{ your secrect }}
+   DIRECTUS_ADMIN_EMAIL={{ your e-mail }}
+   DIRECTUS_ADMIN_PASSWORD={{ your passowrd }}
    DIRECTUS_PUBLIC_URL=http://localhost:8055
 
    # Nuxt configuration
@@ -104,3 +104,4 @@ How to setup a new basic multilanguage project from scratch
    - pages
 1. Remove the `__frontend` directoy.
 1. Remove the `seed` directory.
+1. Check `LICENSE.md`

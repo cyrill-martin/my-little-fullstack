@@ -62,7 +62,7 @@ How to setup a new basic multilanguage project from scratch
 1. Make sure the fresh `frontend` directory contains the file as in `__frontend`, except `package.json`/`package-lock.json` and `README.md`:
    ```txt
    - Dockerfile.dev
-   - nuxt.config.ts
+   - nuxt.config.ts --> Check the actual PROD URL for the second frame-ancestors!!
    - ./app/*
    ```
 1. Navigate back to the root with `cd ..`.

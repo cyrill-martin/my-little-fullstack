@@ -12,6 +12,10 @@ How to setup a new basic multilanguage project from scratch
     1. Hover
     1. Right click for Directus deeplink
 
+## Architecture
+
+![Architecture of kmapper's little fullstack mapped out](architecture.png)
+
 ## Initial Dev Setup
 
 ### Prerequesites
@@ -117,6 +121,10 @@ How to setup a new basic multilanguage project from scratch
    git commit -m "Initial commit"
    ```
 1. Review the basic project files and Directus setup and start developing
+   In the frontend:
+   1. Ctrl + e
+   1. Hover
+   1. Right click for Directus deeplink
 
 ## Prod Setup
 

@@ -49,7 +49,7 @@ export default defineNuxtConfig({
         headers: {
           "X-Frame-Options": "ALLOWALL",
           "Content-Security-Policy":
-            "frame-ancestors 'self' http://localhost:8055 https://cms.kmapper.ch",
+            "frame-ancestors 'self' http://localhost:8055 {{https://cms.kmapper.ch}}",
         },
       },
     },

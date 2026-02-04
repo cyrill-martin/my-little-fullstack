@@ -1,6 +1,7 @@
-// This composable fetches a single item by collection and slug from any Directus collection
-// It returns ALL available Directus data for this item
-export const useContent = (collection, id) => {
+// This composable fetches content from any Directus collection
+// For singletons: useContent('collection_name')
+// For regular collections: useContent('collection_name', id)
+export const useContent = (collection, id = null) => {
   const { getItems } = useDirectus();
   const { locale } = useI18n();
   const { isPreview, getFilter } = usePreview();
@@ -13,7 +14,7 @@ export const useContent = (collection, id) => {
   const directusLocale = computed(() => localeMap[locale.value] || "de-DE");
 
   const { data, pending, error } = useAsyncData(
-    `${collection}-${id}-${locale.value}-${isPreview.value}`,
+    `${collection}-${id || "singleton"}-${locale.value}-${isPreview.value}`,
     () =>
       getItems(collection, {
         filter: getFilter(id),
@@ -27,8 +28,10 @@ export const useContent = (collection, id) => {
       }),
   );
 
-  // Always return all the Directus data available
-  const content = computed(() => data.value?.[0] || null);
+  // Singletons return an object, regular collections return an array
+  const content = computed(() =>
+    Array.isArray(data.value) ? data.value[0] : data.value,
+  );
 
   return { content, pending, error };
 };

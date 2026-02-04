@@ -12,13 +12,14 @@ const { isEditMode } = useEditMode();
 const showPopover = ref(false);
 const popoverX = ref(0);
 const popoverY = ref(0);
-const currentEdit = ref(null); // { collection, id }
+const currentEdit = ref(null); // { collection, id, field }
 const currentTarget = ref(null);
 
 const directusUrl = computed(() => {
   if (!currentEdit.value) return "";
   const { collection, id } = currentEdit.value;
-  return `${runtimeConfig.public.directusUrl}/admin/content/${collection}/${id}`;
+  const base = `${runtimeConfig.public.directusUrl}/admin/content/${collection}`;
+  return id && id !== "--" ? `${base}/${id}` : base;
 });
 
 const parseDataEdit = (value) => {
@@ -61,29 +62,21 @@ const handleContextMenu = (e) => {
   showPopover.value = true;
 };
 
-const handleClickOutside = (e) => {
-  if (!showPopover.value) return;
-
-  // Check if click is inside the popover
-  const popover = e.target.closest(".edit-popover");
-  if (!popover) {
-    showPopover.value = false;
-    currentEdit.value = null;
-  }
+const handleClickOutside = () => {
+  showPopover.value = false;
+  currentEdit.value = null;
 };
 
 onMounted(() => {
   document.addEventListener("mouseenter", handleMouseEnter, true);
   document.addEventListener("mouseleave", handleMouseLeave, true);
   document.addEventListener("contextmenu", handleContextMenu, true);
-  document.addEventListener("click", handleClickOutside, true);
 });
 
 onUnmounted(() => {
   document.removeEventListener("mouseenter", handleMouseEnter, true);
   document.removeEventListener("mouseleave", handleMouseLeave, true);
   document.removeEventListener("contextmenu", handleContextMenu, true);
-  document.removeEventListener("click", handleClickOutside, true);
 });
 </script>
 
@@ -94,12 +87,12 @@ onUnmounted(() => {
     :y="popoverY"
     trigger="manual"
     placement="bottom-start"
-    class="edit-popover"
+    @clickoutside="handleClickOutside"
   >
     <div style="padding: 4px 0">
       <div style="font-size: 12px; color: #666; margin-bottom: 4px">
         {{
-          `${currentEdit?.collection}/${currentEdit?.id}${currentEdit?.field ? ": " + currentEdit?.field : ""}`
+          `${currentEdit?.collection}${currentEdit.id !== "--" ? "/" + currentEdit.id : ""}${currentEdit?.field ? ": " + currentEdit.field : ""}`
         }}
       </div>
       <n-button

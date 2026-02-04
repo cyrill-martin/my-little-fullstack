@@ -92,7 +92,7 @@ onUnmounted(() => {
     <div style="padding: 4px 0">
       <div style="font-size: 12px; color: #666; margin-bottom: 4px">
         {{
-          `${currentEdit?.collection}${currentEdit.id !== "--" ? "/" + currentEdit.id : ""}${currentEdit?.field ? ": " + currentEdit.field : ""}`
+          `${currentEdit?.collection}${currentEdit?.id && currentEdit.id !== "--" ? "/" + currentEdit.id : ""}${currentEdit?.field ? ": " + currentEdit.field : ""}`
         }}
       </div>
       <n-button

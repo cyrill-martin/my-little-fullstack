@@ -4,7 +4,7 @@
 /* Hovering over elements shows an outline if the HTML element contains 
 a correctly formatted data-edit attribute.
 Right click shows a corresponding link to Directus */
-import { NPopover, NButton } from "naive-ui";
+import { NPopover } from "naive-ui";
 
 const runtimeConfig = useRuntimeConfig();
 const { isEditMode } = useEditMode();
@@ -20,6 +20,15 @@ const directusUrl = computed(() => {
   const { collection, id } = currentEdit.value;
   const base = `${runtimeConfig.public.directusUrl}/admin/content/${collection}`;
   return id && id !== "--" ? `${base}/${id}` : base;
+});
+
+const directusLabel = computed(() => {
+  if (!currentEdit.value) return "";
+  const { collection, id, field } = currentEdit.value;
+  let label = `${collection}`;
+  if (id && id !== "--") label += `/${id}`;
+  if (field) label += ` > ${field}`;
+  return label;
 });
 
 const parseDataEdit = (value) => {
@@ -90,20 +99,11 @@ onUnmounted(() => {
     @clickoutside="handleClickOutside"
   >
     <div style="padding: 4px 0">
-      <div style="font-size: 12px; color: #666; margin-bottom: 4px">
-        {{
-          `${currentEdit?.collection}${currentEdit?.id && currentEdit.id !== "--" ? "/" + currentEdit.id : ""}${currentEdit?.field ? ": " + currentEdit.field : ""}`
-        }}
+      <div>
+        <a :href="directusUrl" target="_blank" rel="noopener noreferrer">{{
+          directusLabel
+        }}</a>
       </div>
-      <n-button
-        tag="a"
-        :href="directusUrl"
-        target="_blank"
-        size="small"
-        type="primary"
-      >
-        Go to Directus
-      </n-button>
     </div>
   </n-popover>
 </template>

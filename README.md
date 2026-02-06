@@ -7,10 +7,7 @@ How to setup a new basic multilanguage project from scratch
   - with a lightweight sqlite3 database
   - incl. multilanguage label management in Directus
   - incl. preview mode in Directus
-  - incl. custom edit mode in Nuxt
-    1. Ctrl + e
-    1. Hover
-    1. Right click for Directus deeplink
+  - incl. visual editor in Directus
 
 ## Architecture
 
@@ -62,6 +59,7 @@ How to setup a new basic multilanguage project from scratch
 1. Run `npm install @css-render/vue3-ssr` to handle SSR
 1. Run `npm i --save-dev @types/node` so there will be less warnings in VSC
 1. Run `npm install @directus/sdk` to communicate with Directus
+1. Run `npm install @directus/visual-editing` for Directus' visual edior feature
 1. Run `npm install @nuxtjs/i18n` to add default i18n support
 1. Run `npm i -D naive-ui` to add NaiveUI
 1. Make sure the fresh `frontend` directory contains the file as in `__frontend`, except `package.json`/`package-lock.json` and `README.md`:

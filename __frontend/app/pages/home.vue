@@ -1,7 +1,27 @@
 <script setup>
 const { t } = await useLabels();
+const { editableAttr, applyEditor } = useVisualEditor();
 const home = reactive(useContent("pages", 1)); // home
 const datasets = reactive(useContent("datasets", 1)); // dataset
+
+onMounted(() => {
+  if (home.content) applyEditor();
+  if (datasets.content) applyEditor();
+});
+
+watch(
+  () => home.content,
+  (content) => {
+    if (content) applyEditor();
+  },
+);
+
+watch(
+  () => datasets.content,
+  (content) => {
+    if (content) applyEditor();
+  },
+);
 </script>
 
 <template>
@@ -15,26 +35,60 @@ const datasets = reactive(useContent("datasets", 1)); // dataset
       </div>
 
       <div v-else-if="home.content">
-        <h1 data-edit="pages/1/title">
+        <h1
+          :data-directus="
+            editableAttr({
+              collection: 'pages',
+              item: 1,
+              fields: 'translations',
+              mode: 'modal',
+            })
+          "
+        >
           {{ home.content.translations[0].title }}
         </h1>
         <div
           v-html="home.content.translations[0].content"
-          data-edit="pages/1/content"
+          :data-directus="
+            editableAttr({
+              collection: 'pages',
+              item: 1,
+              fields: 'translations',
+              mode: 'modal',
+            })
+          "
         ></div>
         <p style="margin-top: 40px; color: #666">
           <small
             >Label:
-            <span data-edit="labels/menu.home">{{
-              t("menu.home")
-            }}</span></small
+            <span
+              :data-directus="
+                editableAttr({
+                  collection: 'labels',
+                  item: 'menu.home',
+                  fields: 'translations',
+                  mode: 'modal',
+                })
+              "
+              >{{ t("menu.home") }}</span
+            ></small
           >
         </p>
       </div>
 
       <div v-else>No page found</div>
 
-      <div v-if="datasets.content" data-edit="datasets/1/name">
+      <div
+        v-if="datasets.content"
+        :data-directus="
+          editableAttr({
+            collection: 'datasets',
+            item: 1,
+            fields: 'name',
+            mode: 'popover',
+          })
+        "
+      >
         <a
           :href="`${datasets.content.url}`"
           target="_blank"

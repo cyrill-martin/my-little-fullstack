@@ -1,6 +1,6 @@
 services:
   directus:
-    image: directus/directus:11 # https://hub.docker.com/r/directus/directus
+    image: directus/directus:11
     ports:
       # Mapping the port of the container to the port of the host
       - "8055:8055"
@@ -22,6 +22,8 @@ services:
       PUBLIC_URL: ${DIRECTUS_PUBLIC_URL}
       CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "'self' ${CORS_ORIGIN}"
       CONTENT_SECURITY_POLICY_DIRECTIVES__CHILD_SRC: "'self' blob: ${CORS_ORIGIN}"
+      CACHE_AUTO_PURGE: "true"
+      CORS_CREDENTIALS: "true"
     restart: unless-stopped # Automatically restart the container in case of crash
     
   frontend:

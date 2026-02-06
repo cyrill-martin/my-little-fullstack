@@ -45,7 +45,7 @@ How to setup a new basic multilanguage project from scratch
    CORS_ORIGIN=http://localhost:3000
    ```
 
-1. Repeat the former step for the production environment by renaming `.env.prod.exmaple` to `.env.prod` to keep production variables
+1. Repeat the former step for the production environment by renaming `.env.prod.exmaple` to `.env.prod` and adding production variables
 1. Add Directus directories for mounted Docker volumes with `mkdir -p directus/database directus/uploads directus/extensions`
 1. Set the owner of these directories to UID 1000 (the Directus Docker user, usually the same as your local user) with `sudo chown -R 1000:1000 directus/`
 1. Set the permissions of the Directus directories so that everyone can read with `sudo chmod -R 755 directus/`

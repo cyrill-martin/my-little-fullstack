@@ -120,6 +120,33 @@ How to setup a new basic multilanguage project from scratch
    ```
 1. Review the basic project files and Directus setup and start developing
 
+### Data Modelling in Directus
+
+#### Block Builder
+
+1. Create all needed block collections first: Settings → Data Model → Create Collection
+   - block_richtext
+   - block_hero  
+   - block_gallery
+   - block_cta
+   ... etc.
+1. Add translations to each block: 
+   - Settings → Data Model → Select `block_richtext`
+   - Add field → **Translations** (uses Translations interface)
+   - Save
+   - Directus creates `block_richtext_translations` automatically
+1. Add content fields to translation tables: 
+Go to the `_translations` collection for each block:
+   - `block_richtext_translations`:
+      - Add field: `headline` (text)
+      - Add field: `content` (WYSIWYG)
+   ... etc.
+1. Now add M2A to your main page collection (might or might not be a singleton): 
+   - Settings → Data Model → about (for example)
+   - Add field → **Many to Any (M2A)**
+   - Name: `blocks`
+   - Collections: Select block_richtext, block_hero, etc.
+
 ## Prod Setup
 
 ### Prerequesites

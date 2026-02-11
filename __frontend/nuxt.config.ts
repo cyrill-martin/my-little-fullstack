@@ -23,6 +23,17 @@ export default defineNuxtConfig({
       cookieKey: "i18n_lang",
       redirectOn: "root",
     },
+    customRoutes: "config",
+    pages: {
+      home: {
+        en: "/home",
+        de: "/home",
+      },
+      about: {
+        en: "/about",
+        de: "/ueber",
+      },
+    },
   },
   runtimeConfig: {
     // The env variables are set in the docker-compose.yml

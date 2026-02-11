@@ -11,15 +11,18 @@ export const useLabels = async () => {
   const directusLocale = computed(() => localeMap[locale.value] || "de-DE");
 
   // Load labels - no await, useAsyncData returns refs that populate asynchronously
-  const { data: labels } = await useAsyncData(`labels-${locale.value}`, () =>
-    getItems("labels", {
-      fields: ["*", "translations.*"],
-      deep: {
-        translations: {
-          _filter: { languages_code: { _eq: directusLocale.value } },
+  const { data: labels } = await useAsyncData(
+    `labels-${locale.value}`,
+    () =>
+      getItems("labels", {
+        fields: ["*", "translations.*"],
+        deep: {
+          translations: {
+            _filter: { languages_code: { _eq: directusLocale.value } },
+          },
         },
-      },
-    }),
+      }),
+    { watch: [locale] },
   );
 
   const t = (key) => {

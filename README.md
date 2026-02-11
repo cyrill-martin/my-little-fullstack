@@ -142,7 +142,7 @@ Go to the `_translations` collection for each block:
       - Add field: `content` (WYSIWYG)
    ... etc.
 1. Now add M2A to your main page collection (might or might not be a singleton): 
-   - Settings → Data Model → about (for example)
+   - Settings → Data Model → e.g. about 
    - Add field → **Many to Any (M2A)**
    - Name: `blocks`
    - Collections: Select block_richtext, block_hero, etc.

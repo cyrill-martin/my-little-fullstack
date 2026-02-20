@@ -3,19 +3,22 @@ import { createDirectus, rest, readItems } from "@directus/sdk";
 
 export const useDirectus = () => {
   const config = useRuntimeConfig();
-
-  const directusUrl = import.meta.server
+  
+  // Internal URL for server-side API calls, public URL for client
+  const apiUrl = import.meta.server
     ? config.directusUrl
     : config.public.directusUrl;
 
-  const client = createDirectus(directusUrl).with(rest());
+  // Always public — this ends up in the DOM (img src, etc.)
+  const publicUrl = config.public.directusUrl;
 
+  const client = createDirectus(apiUrl).with(rest());
+  
   const getItems = async (collection, query = {}) => {
     return await client.request(readItems(collection, query));
   };
 
-  return {
-    client,
-    getItems,
-  };
+  const assetUrl = (id) => `${publicUrl}/assets/${id}`;
+
+  return { client, getItems, assetUrl };
 };

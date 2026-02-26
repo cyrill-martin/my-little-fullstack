@@ -285,6 +285,7 @@ How to setup a new basic multilanguage project from scratch
 1. `cd /opt/{{ project }}`
 1. Pull lates code with `git pull`
 1. Rebuild and restart the frontend container with `docker compose -f docker-compose.prod.yml up -d --build frontend`
+1. Clear build cache with `docker builder prune -f`
 
 #### Directus (config/extensions)
 
@@ -292,6 +293,7 @@ How to setup a new basic multilanguage project from scratch
 1. `cd /opt/{{ project }}`
 1. Pull lates code with `git pull`
 1. Rebuild and restart the directus container with `docker compose -f docker-compose.prod.yml up -d --build directus`
+1. Clear build cache with `docker builder prune -f`
 
 #### Environment Variables
 

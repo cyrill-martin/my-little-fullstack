@@ -126,23 +126,23 @@ How to setup a new basic multilanguage project from scratch
 
 1. Create all needed block collections first: Settings → Data Model → Create Collection
    - block_richtext
-   - block_hero  
+   - block_hero
    - block_gallery
    - block_cta
-   ... etc.
-1. Add translations to each block: 
+     ... etc.
+1. Add translations to each block:
    - Settings → Data Model → Select `block_richtext`
    - Add field → **Translations** (uses Translations interface)
    - Save
    - Directus creates `block_richtext_translations` automatically
-1. Add content fields to translation tables: 
-Go to the `_translations` collection for each block:
+1. Add content fields to translation tables:
+   Go to the `_translations` collection for each block:
    - `block_richtext_translations`:
-      - Add field: `headline` (text)
-      - Add field: `content` (WYSIWYG)
-   ... etc.
-1. Now add M2A to your main page collection (might or might not be a singleton): 
-   - Settings → Data Model → e.g. about 
+     - Add field: `headline` (text)
+     - Add field: `content` (WYSIWYG)
+       ... etc.
+1. Now add M2A to your main page collection (might or might not be a singleton):
+   - Settings → Data Model → e.g. about
    - Add field → **Many to Any (M2A)**
    - Name: `blocks`
    - Collections: Select block_richtext, block_hero, etc.
@@ -191,6 +191,11 @@ Go to the `_translations` collection for each block:
    - Ctrl + x
 1. Create Directus directories with `mkdir -p directus/database directus/uploads directus/extensions`
 1. Make sure you have a working database file on your server with correct data and credentials or start blank and add or import schema and data
+1. Open the System Journal with `sudo nano /etc/systemd/journald.conf`
+1. Add/set/uncomment `SystemMaxUse=200M`
+   - Ctrl + o
+   - Enter
+   - Ctrl + x
 
 ### Build and Start Containers
 

@@ -22,6 +22,11 @@ services:
       CACHE_AUTO_PURGE: "true"
       CORS_CREDENTIALS: "true"
     restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   frontend:
     build:
@@ -35,3 +40,8 @@ services:
     depends_on:
       - directus
     restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"

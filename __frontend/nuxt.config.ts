@@ -7,12 +7,12 @@ export default defineNuxtConfig({
     locales: [
       {
         code: "de",
-        iso: "de-DE",
+        language: "de-DE",
         name: "Deutsch",
       },
       {
         code: "en",
-        iso: "en-US",
+        language: "en-US",
         name: "English",
       },
     ],

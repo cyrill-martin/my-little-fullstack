@@ -138,14 +138,20 @@ How to setup a new basic multilanguage project from scratch
 1. Add content fields to translation tables:
    Go to the `_translations` collection for each block:
    - `block_richtext_translations`:
-     - Add field: `headline` (text)
+     - Add field: `title` (text)
      - Add field: `content` (WYSIWYG)
        ... etc.
-1. Now add M2A to your main page collection (might or might not be a singleton):
-   - Settings → Data Model → e.g. about
-   - Add field → **Many to Any (M2A)**
-   - Name: `blocks`
-   - Collections: Select block_richtext, block_hero, etc.
+1. Add relationships
+   - For a builder: add M2A to your main page collection (might or might not be a singleton):
+     - Settings → Data Model → e.g. about
+     - Add field → **Many to Any (M2A)**
+     - Name: `blocks`
+     - Collections: Select block_richtext, block_hero, etc.
+   - For seo: add Many-to-One
+1. Add a field, e.g. "title" as the dispaly template to (example for about blocks):
+   - block_richtext: Collection Setup > Display Template
+   - about_blocks: Collection Setup > Display Template
+   - about: Field "blocks" --> Edit > Display
 
 ## Prod Setup
 
